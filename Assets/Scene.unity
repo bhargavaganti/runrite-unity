@@ -109,6 +109,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children:
   - {fileID: 1592793943}
   m_Father: {fileID: 1227654676}
@@ -117,6 +118,15 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 0.75}
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
+=======
+  m_Children: []
+  m_Father: {fileID: 485456550}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &162993238
 GameObject:
@@ -345,7 +355,11 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 0, y: 90}
+=======
+  m_AnchoredPosition: {x: 0, y: -23}
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &171721925
@@ -6566,6 +6580,7 @@ RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1916385346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -6659,6 +6674,25 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1916385346}
 --- !u!1 &1936245121
+=======
+  m_GameObject: {fileID: 485456546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1921681556}
+  - {fileID: 37353077}
+  - {fileID: 1194100135}
+  - {fileID: 846227659}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!1 &721106577
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -6691,8 +6725,13 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -91.09999, y: 174.89996}
   m_SizeDelta: {x: 21.7, y: 19.6}
+=======
+  m_AnchoredPosition: {x: 0.0000038146973, y: 141.2}
+  m_SizeDelta: {x: 145.5, y: 33.2}
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936245123
 MonoBehaviour:
@@ -6951,8 +6990,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< HEAD
   m_Text: 
 --- !u!222 &1989332899
+=======
+  m_Text: Start a Run
+--- !u!222 &782103729
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -6984,9 +7028,18 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children: []
   m_Father: {fileID: 171721924}
   m_RootOrder: 0
+=======
+  m_Children:
+  - {fileID: 405227486}
+  - {fileID: 721106578}
+  - {fileID: 961754589}
+  m_Father: {fileID: 485456550}
+  m_RootOrder: 3
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7004,7 +7057,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
+<<<<<<< HEAD
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+=======
+  m_Color: {r: 0.21323529, g: 0.48235288, b: 0.85294116, a: 1}
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7066,8 +7123,13 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -91.09999, y: 174.89996}
   m_SizeDelta: {x: 21.7, y: 19.6}
+=======
+  m_AnchoredPosition: {x: 0, y: 22}
+  m_SizeDelta: {x: 160, y: 30}
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2012544870
 MonoBehaviour:
@@ -7180,9 +7242,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children: []
   m_Father: {fileID: 405227486}
   m_RootOrder: 0
+=======
+  m_Children:
+  - {fileID: 171721924}
+  m_Father: {fileID: 485456550}
+  m_RootOrder: 2
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7442,10 +7511,16 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
+<<<<<<< HEAD
     m_LineSpacing: 2
   m_Text: "Run 9\t\t4/19/16\nRun 8 \t\t4/18/16\nRun 7\t\t4/17/16\nRun 6\t\t4/16/16\nRun
     5\t\t4/15/16\nRun 4 \t\t4/14/16\nRun 3\t\t4/13/16\nRun 2\t\t4/12/16\nRun 1\t\t4/11/16"
 --- !u!222 &2118987390
+=======
+    m_LineSpacing: 1
+  m_Text: My Footstrikes
+--- !u!222 &2029220302
+>>>>>>> db21d9a02184c74509e91cbc37b1f066c3e81e59
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
