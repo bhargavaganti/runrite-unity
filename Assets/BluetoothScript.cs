@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BlueToothCoonect : MonoBehaviour {
+public class BluetoothScript : MonoBehaviour {
 
 	public string DeviceName = "RFDuino"; 
 	public string ServiceUUID = "2220";
@@ -12,7 +12,7 @@ public class BlueToothCoonect : MonoBehaviour {
 		Scan,
 		Connect,
 		Subscribe,
-		//unsubscirbe??
+		Subscribed,
 		Disconnect,
 	}
 
@@ -36,6 +36,7 @@ public class BlueToothCoonect : MonoBehaviour {
 	void StartBluetooth(){
 
 		Reset (); //resets all instance variables
+		Debug.Log("hello world");
 
 		// set up interface as central 
 		BluetoothLEHardwareInterface.Initialize (true, false, () => { 
@@ -67,7 +68,6 @@ public class BlueToothCoonect : MonoBehaviour {
 	//(3) connect successful, scan for services
 	//(4) service found, scan for characteristics
 	//(5) got characteristics, get value for characteristic
-	// 
 
 
 	// Update is called once per frame
@@ -84,10 +84,11 @@ public class BlueToothCoonect : MonoBehaviour {
 				switch (state) {
 
 				case States.None:
+					Debug.Log("none");
 					break;
 
 				case States.Scan: //(1) scan for devices
-			
+					Debug.Log("scanning");
 				// scan peripherals for peripherals with serviceUUID of serviceUUID = "2220"
 					BluetoothLEHardwareInterface.ScanForPeripheralsWithServices (new []{ ServiceUUID }, (address, name) => {
 						// callback with adress and name 
@@ -95,14 +96,14 @@ public class BlueToothCoonect : MonoBehaviour {
 						Debug.Log ("addr" + address + "name" + name);
 
 						// GET NAME OF RFDUINO 
-						if (name.Contains (DeviceName)) {
+						//if (name.Contains (DeviceName)) {
 							deviceAddress = address;
 
 							// stop scan if we find the arduino
 							BluetoothLEHardwareInterface.StopScan ();
 							setState (States.Connect, 0.5f);
 
-						}
+						//}
 
 					}, (address, name, rssi, bytes) => {
 					
@@ -115,7 +116,7 @@ public class BlueToothCoonect : MonoBehaviour {
 
 				case States.Connect: // (2) if device found, connect to device
 					foundSubscribeID = false;
-
+					Debug.Log("connecting");
 
 			// no callback for connect or service action, because each are enumerated and would have to carefully
 			// set timeouts for all of them - ie: connect would call service actin for every service found,
@@ -125,7 +126,7 @@ public class BlueToothCoonect : MonoBehaviour {
 						// characterstic action
 						foundSubscribeID = foundSubscribeID || IsEqual (characteristicUUID, SubscribeUUID);
 						if (foundSubscribeID) {
-					
+							Debug.Log("connected");
 							connected = true;
 							setState (States.Subscribe, 2f);
 						}
@@ -135,6 +136,7 @@ public class BlueToothCoonect : MonoBehaviour {
 				case States.Subscribe: //service found, subscribe to characteristics
 				// which one ?! use subscribecharacteristic NOT readcharacteristic for if characteristic value will change 
 				// which eventually it will because sending different packets of data
+					Debug.Log("subscribing");
 					BluetoothLEHardwareInterface.SubscribeCharacteristic (deviceAddress, ServiceUUID, SubscribeUUID, (notification) => {
 						//notificationAction
 						Debug.Log ("notification action is " + notification);
@@ -142,11 +144,18 @@ public class BlueToothCoonect : MonoBehaviour {
 					}, (characteristicUUID, bytes) => {
 					
 						//action
-						Debug.Log ("value changed, data: " + bytes);
+						Debug.Log("subscribed");
+						Debug.Log ("value changed, data: " + System.Text.Encoding.UTF8.GetString(bytes, 0, bytes.Length) );
+						Debug.Log(bytes);
+						Debug.Log(bytes.Length);
 						dataBytes = bytes;
-
+						setState(States.Subscribed, 10f);
 
 					});
+					break;
+
+				case States.Subscribed:
+					Debug.Log("subscribed");
 					break;
 
 				case States.Disconnect:
