@@ -50,6 +50,7 @@ public class SimpleTest : MonoBehaviour
 	void StartProcess ()
 	{
 		Reset ();
+
 		BluetoothLEHardwareInterface.Initialize (true, false, () => {
 			
 			SetState (States.Scan, 0.1f);
