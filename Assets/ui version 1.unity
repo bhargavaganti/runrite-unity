@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 331783164}
   m_HandleRect: {fileID: 331783163}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3335,12 +3335,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 640, y: 360}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.93
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -8349,7 +8349,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 963670979}
   m_HandleRect: {fileID: 963670978}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.99999976
   m_Size: 0.71315277
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16505,7 +16505,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 265}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2118987389
