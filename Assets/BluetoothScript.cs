@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BluetoothScript : MonoBehaviour {
 
-	public string DeviceName = "RFDuino"; 
+	public string DeviceName = "RunRite";  // changed from "RFDuino"
 	public string ServiceUUID = "2220";
 	public string SubscribeUUID = "2221";
 
@@ -22,6 +22,7 @@ public class BluetoothScript : MonoBehaviour {
 	private string deviceAddress;
 	private bool foundSubscribeID = false;
 	private byte[] dataBytes = null;
+	private DataScript d;
 
 	void Reset(){
 		connected = false;
@@ -58,6 +59,7 @@ public class BluetoothScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		d = new DataScript();
 		StartBluetooth ();
 	}
 
@@ -72,7 +74,6 @@ public class BluetoothScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
 
 		// do some stuff with the timeout so as to 
 		// not do two things at once
@@ -136,6 +137,9 @@ public class BluetoothScript : MonoBehaviour {
 				case States.Subscribe: //service found, subscribe to characteristics
 				// which one ?! use subscribecharacteristic NOT readcharacteristic for if characteristic value will change 
 				// which eventually it will because sending different packets of data
+
+					//DataScript d = gameObject.GetComponent<DataScript> ();
+
 					Debug.Log("subscribing");
 					BluetoothLEHardwareInterface.SubscribeCharacteristic (deviceAddress, ServiceUUID, SubscribeUUID, (notification) => {
 						//notificationAction
@@ -145,9 +149,12 @@ public class BluetoothScript : MonoBehaviour {
 					
 						//action
 						Debug.Log("subscribed");
-						Debug.Log ("value changed, data: " + System.Text.Encoding.UTF8.GetString(bytes, 0, bytes.Length) );
-						Debug.Log(bytes);
-						Debug.Log(bytes.Length);
+						string s = System.Text.Encoding.UTF8.GetString(bytes, 0, bytes.Length);
+						Debug.Log ("value changed, data: " + s );
+
+						bool dataNonZero = d.receiveData(s);
+						Debug.Log(dataNonZero.ToString());
+
 						dataBytes = bytes;
 						setState(States.Subscribed, 10f);
 
