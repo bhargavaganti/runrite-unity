@@ -5,39 +5,25 @@ using System.Collections.Generic;
 
 public class DataScript {
 
-	public class FootStrike {
 
-		private ArrayList data = new ArrayList();
-		private double mean;
+	private static DataScript instance;
+	bool zeros = true;
+	int currStrike;
+	public List<FootStrike> feetArr;
 
-		public FootStrike(int[] d){
-			data.Add (d);
-			mean = 0;
-		}
 
-		public void addData(int[] d){
-			data.Add (d);
-			Debug.Log ("data added:" + d[0] + d[1] + d[2] + d[3]);
-			// calculate new mean
-		}
-
-		public ArrayList getData(){
-			return data;
-		}
-
-		public double getMean(){
-			return mean;
-		}
-			
+	private DataScript(){
+		zeros = true;
+		currStrike = 0;
+		feetArr = new List<FootStrike> ();
 	}
 
-	bool zeros;
-	int currStrike;
-	List<DataScript.FootStrike> feetArr;
+	public static DataScript getInstance(){
+		if(instance == null){
+			instance = new DataScript();
+		}
 
-
-	public DataScript(){
-		// singleton
+		return instance;
 	}
 		
 	public bool receiveData(string datastr) {
@@ -56,7 +42,7 @@ public class DataScript {
 			
 		}
 
-		Debug.Log ("num1: " + nums[1]);
+		Debug.Log ("num1: " + nums[0] + " num2:" + nums[1] + " 3: " + nums[2] + " 4: " + nums[3] + " zerocnt: " + zerocnt);
 
 		if (zerocnt == 5){
 			if(!zeros){
@@ -67,10 +53,15 @@ public class DataScript {
 				
 		} else {
 			// if last one was zeros, NEW FOOTSTRIKE
+			// Debug.Log("ELSE STATEMENT");
+
 			if(this.zeros){
-				DataScript.FootStrike newF = new DataScript.FootStrike (nums);
+				Debug.Log ("new footstrike");
+				FootStrike newF = new FootStrike (nums);
 				feetArr.Add(newF);
+				zeros = false;
 			} else {
+				Debug.Log ("no new footstrike");
 				feetArr[currStrike].addData(nums);
 			}
 			return true;

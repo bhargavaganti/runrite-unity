@@ -1,35 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FootSrike : MonoBehaviour {
+public class FootStrike {
 
 	private ArrayList data = new ArrayList();
-	private double mean;
+	private double[] mean;
+	private int numD;
 
-	void FootStike(int[] d){
+	public FootStrike(int[] d){
+		Debug.Log ("footstrike constructor");
 		data.Add (d);
-		mean = 0;
+		//mean = (double)d;
+		numD = 1;
 	}
 
 	public void addData(int[] d){
 		data.Add (d);
+		Debug.Log ("data added:" + d[0] + d[1] + d[2] + d[3]);
+
 		// calculate new mean
+
+
 	}
 
 	public ArrayList getData(){
 		return data;
 	}
 
-	public double getMean(){
+	public double[] getMean(){
 		return mean;
 	}
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
