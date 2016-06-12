@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BluetoothScript : MonoBehaviour {
 
+	public Button myselfButton;
 	public string DeviceName = "RunRite";  // changed from "RFDuino"
 	public string ServiceUUID = "2220";
 	public string SubscribeUUID = "2221";
@@ -59,8 +61,9 @@ public class BluetoothScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		d = new DataScript();
-		StartBluetooth ();
+		d = DataScript.getInstance();
+		myselfButton = GetComponent<Button>();
+		myselfButton.onClick.AddListener(() => StartBluetooth());
 	}
 
 
@@ -97,14 +100,14 @@ public class BluetoothScript : MonoBehaviour {
 						Debug.Log ("addr" + address + "name" + name);
 
 						// GET NAME OF RFDUINO 
-						//if (name.Contains (DeviceName)) {
+						if (name.Contains (DeviceName)) {
 							deviceAddress = address;
 
 							// stop scan if we find the arduino
 							BluetoothLEHardwareInterface.StopScan ();
 							setState (States.Connect, 0.5f);
 
-						//}
+						}
 
 					}, (address, name, rssi, bytes) => {
 					
@@ -171,7 +174,7 @@ public class BluetoothScript : MonoBehaviour {
 						BluetoothLEHardwareInterface.DeInitialize (() => {
 
 							connected = false;
-							state = States.None;
+							setState(States.None, 10f);
 						});
 					});
 					break;
@@ -184,7 +187,7 @@ public class BluetoothScript : MonoBehaviour {
 		
 
 
-	bool IsEqual(string uuid1, string uuid2)
+	private bool IsEqual(string uuid1, string uuid2)
 	{
 		if (uuid1.Length == 4)
 			uuid1 = FullUUID (uuid1);
@@ -194,9 +197,17 @@ public class BluetoothScript : MonoBehaviour {
 		return (uuid1.ToUpper().CompareTo(uuid2.ToUpper()) == 0);
 	}
 
-	string FullUUID (string uuid)
+	private string FullUUID (string uuid)
 	{
 		return "0000" + uuid + "-0000-1000-8000-00805f9b34fb";
+	}
+
+	void Destroy(){
+		myselfButton.onClick.RemoveListener (() => StartBluetooth ());
+	}
+
+	public void StopBluetooth() {
+		setState(States.Disconnect, 1f);
 	}
 
 }
